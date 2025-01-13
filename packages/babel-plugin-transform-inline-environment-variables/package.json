@@ -1,14 +1,14 @@
 {
   "name": "babel-plugin-transform-inline-environment-variables",
-  "version": "0.4.4",
-  "description": "Inline environment variables.",
+  "version": "0.1",
+  "description": "A fork of babel-plugin-transform-inline-environment-variables, modified to track which environment variables are replaced.",
   "keywords": [
     "babel-plugin"
   ],
-  "homepage": "https://github.com/babel/minify#readme",
-  "bugs": "https://github.com/babel/minify/issues",
+  "homepage": "https://github.com/tysonmatanich/babel-minify/tree/babel-plugin-transform-inline-environment-variables/packages/babel-plugin-transform-inline-environment-variables",
+  "bugs": "https://github.com/tysonmatanich/babel-minify/issues",
   "license": "MIT",
-  "author": "amasad",
+  "author": "tysonmatanich",
   "main": "lib/index.js",
-  "repository": "https://github.com/babel/minify/tree/master/packages/babel-plugin-transform-inline-environment-variables"
+  "repository": "https://github.com/tysonmatanich/babel-minify/tree/babel-plugin-transform-inline-environment-variables/packages/babel-plugin-transform-inline-environment-variables"
 }
