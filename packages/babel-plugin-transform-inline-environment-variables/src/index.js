@@ -8,6 +8,9 @@ module.exports = function({ types: t }) {
   }
   return {
     name: "transform-inline-environment-variables",
+    pre(state) {
+      this.replacementsState = new Set();
+    },
     visitor: {
       MemberExpression(path, { opts: { include, exclude } = {} }) {
         if (path.get("object").matchesPattern("process.env")) {
@@ -18,10 +21,18 @@ module.exports = function({ types: t }) {
             (!include || include.indexOf(key.value) !== -1) &&
             (!exclude || exclude.indexOf(key.value) === -1)
           ) {
-            path.replaceWith(t.valueToNode(process.env[key.value]));
+            const value = process.env[key.value];
+            if (value === undefined) {
+              console.warn(`Environment variable "${key.value}" is undefined.`);
+            }
+            this.replacementsState.add(key.value);
+            path.replaceWith(t.valueToNode(value));
           }
         }
       }
+    },
+    post(state) {
+      state.metadata.keysReplaced = [...this.replacementsState];
     }
   };
 };
