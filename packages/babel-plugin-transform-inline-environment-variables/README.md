@@ -1,6 +1,6 @@
-# babel-plugin-transform-inline-environment-variables
+# @tysonmatanich/babel-plugin-transform-inline-environment-variables
 
-Inline environment variables
+Inline environment variables and keep track of which environment variables were replaced
 
 ## Example
 
@@ -20,12 +20,32 @@ process.env.NODE_ENV;
 ## Installation
 
 ```sh
-npm install babel-plugin-transform-inline-environment-variables --save-dev
+npm install @tysonmatanich/babel-plugin-transform-inline-environment-variables --save-dev
 ```
 
 ## Usage
 
-### Via `.babelrc` (Recommended)
+### JavaScript (Recommended)
+
+```javascript
+const babel = require("@babel/core");
+const inlineEnvVarPlugin = require("@tysonmatanich/babel-plugin-transform-inline-environment-variables");
+
+const transformed = await babel.transformFileAsync("{path-to-file}.js", {
+  configFile: false,
+  plugins: [
+    babel.createConfigItem([
+      inlineEnvVarPlugin,
+      { include: [], exclude: [] },
+    ]),
+  ],
+  retainLines: true,
+});
+
+console.log(transformed.metadata.keysReplaced);
+```
+
+### Via `.babelrc`
 
 **.babelrc**
 
