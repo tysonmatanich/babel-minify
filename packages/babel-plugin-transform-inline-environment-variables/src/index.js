@@ -8,7 +8,7 @@ module.exports = function({ types: t }) {
   }
   return {
     name: "transform-inline-environment-variables",
-    pre(state) {
+    pre() {
       this.replacementsState = new Set();
     },
     visitor: {
@@ -22,9 +22,6 @@ module.exports = function({ types: t }) {
             (!exclude || exclude.indexOf(key.value) === -1)
           ) {
             const value = process.env[key.value];
-            if (value === undefined) {
-              console.warn(`Environment variable "${key.value}" is undefined.`);
-            }
             this.replacementsState.add(key.value);
             path.replaceWith(t.valueToNode(value));
           }
