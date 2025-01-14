@@ -1,6 +1,6 @@
 {
   "name": "@tysonmatanich/babel-plugin-transform-inline-environment-variables",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "A fork of babel-plugin-transform-inline-environment-variables, modified to track which environment variables are replaced.",
   "keywords": [
     "babel-plugin"

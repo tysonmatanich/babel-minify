@@ -1,5 +1,8 @@
 # @tysonmatanich/babel-plugin-transform-inline-environment-variables
 
+[![npm version](https://badge.fury.io/js/netlify-plugin-inline-env.svg)](https://badge.fury.io/js/netlify-plugin-inline-env) 
+ [![CI](https://github.com/tysonmatanich/babel-minify/actions/workflows/ci.yml/badge.svg)](https://github.com/tysonmatanich/babel-minify/actions/workflows/ci.yml)
+
 Inline environment variables and keep track of which environment variables were replaced
 
 ## Example
