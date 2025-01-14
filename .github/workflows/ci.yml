@@ -40,7 +40,7 @@ jobs:
       - name: Install
         run: yarn
       - name: Lint
-        run: yarn lint
+        run: yarn lerna run lint --scope @tysonmatanich/babel-plugin-transform-inline-environment-variables
 
   test:
     name: Test on Node.js # GitHub will add ${{ matrix.node-version }} to this title
@@ -64,4 +64,4 @@ jobs:
         with:
           name: lib
       - name: Test
-        run: yarn test
+        run: yarn lerna run test --scope @tysonmatanich/babel-plugin-transform-inline-environment-variables
